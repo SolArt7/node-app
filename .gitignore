@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+.idea/
+.vscode/
+variables.env
+*.log
+haters/
+
+public/uploads/*
+!public/uploads/store.png
+!.gitkeep
