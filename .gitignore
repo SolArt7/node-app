@@ -5,6 +5,7 @@ node_modules/
 variables.env
 *.log
 haters/
+readme.md
 
 public/uploads/*
 !public/uploads/store.png
