@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .inner
+        .chat
+            h2.chat__title= title
+            .chat__body
+            .chat__form
+                form#chat-form
+                    textarea#chat-form__textbox.chat__textbox(name="message", cols="1", rows="3" placeholder="Type something here...")
+                    input(type="hidden" id="store-id" value=store.id)
+                    input.button(type="submit" value="Send")

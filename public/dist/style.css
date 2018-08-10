@@ -1126,4 +1126,51 @@ pre.error {
   line-height: 3;
   white-space: pre-line; }
 
+.chat {
+  height: calc(100vh - 140px);
+  width: 100%;
+  background: #fff;
+  position: relative; }
+  .chat__title {
+    position: absolute;
+    margin: 0;
+    padding: 5px 10px;
+    top: 0;
+    left: 0;
+    background: rgba(48, 48, 48, 0.1);
+    opacity: 0.4;
+    transition: .2s ease; }
+    .chat__title:hover {
+      opacity: 1;
+      background: #ffc40e; }
+  .chat__body {
+    width: 100%;
+    height: calc(90vh - 140px);
+    overflow-y: scroll;
+    padding-top: 8.5%; }
+  .chat__form {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; }
+  .chat__textbox {
+    resize: none;
+    border: 1px solid #000;
+    outline: none; }
+  .chat__message {
+    width: 100%;
+    overflow: auto; }
+    .chat__message-in {
+      padding: 5px;
+      margin: 5px;
+      background: #FFC40E;
+      font-size: 2rem;
+      float: left;
+      font-weight: 300; }
+      .chat__message-in--right {
+        float: right;
+        background: #303030;
+        color: #fff; }
+
 /*# sourceMappingURL=style.css.map*/
