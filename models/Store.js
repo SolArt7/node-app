@@ -127,4 +127,10 @@ storeSchema.virtual('reviews', {
     foreignField: 'store' // which field on the review?
 });
 
+storeSchema.virtual('messages', {
+    ref: 'Message',
+    localField: '_id',
+    foreignField: 'store'
+});
+
 module.exports = mongoose.model('Store', storeSchema);

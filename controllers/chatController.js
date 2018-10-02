@@ -1,15 +1,37 @@
+const mongoose = require('mongoose');
+const Message = mongoose.model('Message');
+const Store = mongoose.model('Store');
 
-exports.chatPage = (req, res) => {
-    res.render('chat', {title: 'Chat', store: {id: req.params.id}})
-}
 
+exports.chatPage = async (req, res) => {
+	const store = await Store.findById(req.params.id).populate('messages');
+	
+	res.render('chat', {
+		title: 'Chat',
+		store
+	})
+};
 
-exports.onChatMessage = (io) => (msg) => {
-    console.log('Message from user: ' + msg);
-    io.emit('chat message', msg);
-}
+// Socket controllers
+
+exports.onSendMessage = (io, id) => async (data) => {
+	// save message
+	const msg = {
+		text: data.message,
+		store: data.storeId,
+		user: data.userId
+	};
+	try {
+		const message = new Message(msg);
+		await message.save();
+		io.emit(`send-${id}`, data);
+		
+	} catch (e) {
+		console.log(e);
+		io.emit(`send-${id}`, {success: false});
+	}
+};
 
 exports.onDisconnect = () => {
-    console.log('User disconnected');
-    
-}
+	console.log('User disconnected');
+};

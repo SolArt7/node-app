@@ -5,8 +5,17 @@ block content
         .chat
             h2.chat__title= title
             .chat__body
+                if store.messages && store.messages.length
+                    each msg in store.messages
+                        .chat__message
+                            .chat__message-in(class=(msg.user.equals(user._id) ? "chat__message-in--right" : ""))
+                                span= msg.text
+                                .chat__username= msg.user.name
+
             .chat__form
                 form#chat-form
                     textarea#chat-form__textbox.chat__textbox(name="message", cols="1", rows="3" placeholder="Type something here...")
-                    input(type="hidden" id="store-id" value=store.id)
+                    input(type="hidden" id="storeId" name="storeId" value=store._id)
+                    input(type="hidden" id="username" name="username" value=user.name)
+                    input(type="hidden" id="userId" name="userId" value=user._id)
                     input.button(type="submit" value="Send")

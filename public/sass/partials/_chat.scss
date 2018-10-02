@@ -36,10 +36,19 @@
         outline: none;
     }
 
+    &__username {
+        padding-top: 5px;
+        text-align: right;
+        width: 100%;
+        font-weight: 300;
+        font-size: 1.2rem;
+    }
+
     &__message {
         width: 100%;
         overflow: auto;
         &-in {
+            max-width: 70%;
             padding: 5px;
             margin: 5px;
             background: $yellow;

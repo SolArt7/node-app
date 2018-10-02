@@ -29,5 +29,5 @@ block content
             .reviews
                 each review in store.reviews
                     +review(review)
-
-        a(href=`/chat/${store._id}` style="padding: 5px").button Chat with Staff
+        if user
+            a(href=`/chat/${store._id}`, title="title").button Chat with Staff

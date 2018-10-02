@@ -55,7 +55,7 @@ router.post('/reviews/:id/', authController.isLoggedIn, catchErrors(reviewContro
 
 router.get('/top', catchErrors(storeController.getTopStores));
 
-router.get('/chat/:id', chatController.chatPage);
+router.get('/chat/:id', authController.isLoggedIn, catchErrors(chatController.chatPage));
 
 /* 
     API

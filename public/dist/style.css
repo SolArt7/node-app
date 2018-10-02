@@ -1158,10 +1158,17 @@ pre.error {
     resize: none;
     border: 1px solid #000;
     outline: none; }
+  .chat__username {
+    padding-top: 5px;
+    text-align: right;
+    width: 100%;
+    font-weight: 300;
+    font-size: 1.2rem; }
   .chat__message {
     width: 100%;
     overflow: auto; }
     .chat__message-in {
+      max-width: 70%;
       padding: 5px;
       margin: 5px;
       background: #FFC40E;

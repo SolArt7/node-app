@@ -33,6 +33,14 @@ userSchema.virtual('gravatar').get(function () {
     return `https://gravatar.com/avatar/${hash}?s=200`
 });
 
+function autopopulate(next) {
+    this.populate('chats');
+    next();
+}
+
+userSchema.pre('find', autopopulate);
+userSchema.pre('findOne', autopopulate);
+
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 userSchema.plugin(mongodbErrorHandler);
 
